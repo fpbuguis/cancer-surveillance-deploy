@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Kalam';
+    src: url('@/assets/font/Kalam-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, p, span, td{
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+h3 {
+    font-family: 'Kalam', cursive;
+}
+
+[x-cloak] {
+    display: none;
+}
+

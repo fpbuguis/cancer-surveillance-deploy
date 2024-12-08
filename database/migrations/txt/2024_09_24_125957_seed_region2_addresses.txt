@@ -1,0 +1,142 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        $addresses = [
+
+            // Batanes
+            ['Basco', 'Batanes', 'Region 2'],
+            ['Itbayat', 'Batanes', 'Region 2'],
+            ['Ivana', 'Batanes', 'Region 2'],
+            ['Mahatao', 'Batanes', 'Region 2'],
+            ['Sabtang', 'Batanes', 'Region 2'],
+            ['Uyugan', 'Batanes', 'Region 2'],
+
+            // Cagayan
+            ['Tuguegarao City', 'Cagayan', 'Region 2'],
+            ['Abulug', 'Cagayan', 'Region 2'],
+            ['Alcala', 'Cagayan', 'Region 2'],
+            ['Allacapan', 'Cagayan', 'Region 2'],
+            ['Amulung', 'Cagayan', 'Region 2'],
+            ['Aparri', 'Cagayan', 'Region 2'],
+            ['Baggao', 'Cagayan', 'Region 2'],
+            ['Ballesteros', 'Cagayan', 'Region 2'],
+            ['Buguey', 'Cagayan', 'Region 2'],
+            ['Calayan', 'Cagayan', 'Region 2'],
+            ['Calamaniugan', 'Cagayan', 'Region 2'],
+            ['Claveria', 'Cagayan', 'Region 2'],
+            ['Enrile', 'Cagayan', 'Region 2'],
+            ['Gattaran', 'Cagayan', 'Region 2'],
+            ['Gonzaga', 'Cagayan', 'Region 2'],
+            ['Iguig', 'Cagayan', 'Region 2'],
+            ['Lal-lo', 'Cagayan', 'Region 2'],
+            ['Lasam', 'Cagayan', 'Region 2'],
+            ['Pamplona', 'Cagayan', 'Region 2'],
+            ['Peñablanca', 'Cagayan', 'Region 2'],
+            ['Piat', 'Cagayan', 'Region 2'],
+            ['Rizal', 'Cagayan', 'Region 2'],
+            ['Sanchez-Mira', 'Cagayan', 'Region 2'],
+            ['Santa Ana', 'Cagayan', 'Region 2'],
+            ['Santa Praxedes', 'Cagayan', 'Region 2'],
+            ['Santa Teresita', 'Cagayan', 'Region 2'],
+            ['Santo Niño', 'Cagayan', 'Region 2'],
+            ['Solana', 'Cagayan', 'Region 2'],
+            ['Tuao', 'Cagayan', 'Region 2'],
+
+            // Isabela
+            ['Cauayan City', 'Isabela', 'Region 2'],
+            ['Ilagan City', 'Isabela', 'Region 2'],
+            ['Santiago City', 'Isabela', 'Region 2'],
+            ['Alicia', 'Isabela', 'Region 2'],
+            ['Angadanan', 'Isabela', 'Region 2'],
+            ['Aurora', 'Isabela', 'Region 2'],
+            ['Benito Soliven', 'Isabela', 'Region 2'],
+            ['Burgos', 'Isabela', 'Region 2'],
+            ['Cabagan', 'Isabela', 'Region 2'],
+            ['Cabatuan', 'Isabela', 'Region 2'],
+            ['Cordon', 'Isabela', 'Region 2'],
+            ['Dinapigue', 'Isabela', 'Region 2'],
+            ['Divilacan', 'Isabela', 'Region 2'],
+            ['Echague', 'Isabela', 'Region 2'],
+            ['Gamu', 'Isabela', 'Region 2'],
+            ['Jones', 'Isabela', 'Region 2'],
+            ['Luna', 'Isabela', 'Region 2'],
+            ['Maconacon', 'Isabela', 'Region 2'],
+            ['Delfin Albano', 'Isabela', 'Region 2'],
+            ['Mallig', 'Isabela', 'Region 2'],
+            ['Naguilian', 'Isabela', 'Region 2'],
+            ['Palanan', 'Isabela', 'Region 2'],
+            ['Quezon', 'Isabela', 'Region 2'],
+            ['Quirino', 'Isabela', 'Region 2'],
+            ['Ramon', 'Isabela', 'Region 2'],
+            ['Reina Mercedes', 'Isabela', 'Region 2'],
+            ['Roxas', 'Isabela', 'Region 2'],
+            ['San Agustin', 'Isabela', 'Region 2'],
+            ['San Guillermo', 'Isabela', 'Region 2'],
+            ['San Isidro', 'Isabela', 'Region 2'],
+            ['San Manuel', 'Isabela', 'Region 2'],
+            ['San Mariano', 'Isabela', 'Region 2'],
+            ['San Mateo', 'Isabela', 'Region 2'],
+            ['San Pablo', 'Isabela', 'Region 2'],
+            ['Santa Maria', 'Isabela', 'Region 2'],
+            ['Santo Tomas', 'Isabela', 'Region 2'],
+            ['Tomauini', 'Isabela', 'Region 2'],
+
+            // Nueva Vizcaya
+            ['Ambaguio', 'Nueva Vizcaya', 'Region 2'],
+            ['Aritao', 'Nueva Vizcaya', 'Region 2'],
+            ['Bagabag', 'Nueva Vizcaya', 'Region 2'],
+            ['Bambang', 'Nueva Vizcaya', 'Region 2'],
+            ['Bayombong', 'Nueva Vizcaya', 'Region 2'],
+            ['Diadi', 'Nueva Vizcaya', 'Region 2'],
+            ['Dupax del Norte', 'Nueva Vizcaya', 'Region 2'],
+            ['Dupax del Sur', 'Nueva Vizcaya', 'Region 2'],
+            ['Kasibu', 'Nueva Vizcaya', 'Region 2'],
+            ['Kayapa', 'Nueva Vizcaya', 'Region 2'],
+            ['Quezon', 'Nueva Vizcaya', 'Region 2'],
+            ['Santa Fe', 'Nueva Vizcaya', 'Region 2'],
+            ['Solano', 'Nueva Vizcaya', 'Region 2'],
+            ['Villaverde', 'Nueva Vizcaya', 'Region 2'],
+            ['Alfonso Castaneda', 'Nueva Vizcaya', 'Region 2'],
+
+            // Quirino
+            ['Aglipay', 'Quirino', 'Region 2'],
+            ['Cabarroguis', 'Quirino', 'Region 2'],
+            ['Diffun', 'Quirino', 'Region 2'],
+            ['Madela', 'Quirino', 'Region 2'],
+            ['Saguday', 'Quirino', 'Region 2'],
+            ['Nagtipunan', 'Quirino', 'Region 2'],
+        ];
+
+        foreach ($addresses as $address) {
+            DB::table('ph_addresses')->insert([
+                'ph_address_muni-city' => $address[0],
+                'ph_address_province' => $address[1],
+                'ph_address_region' => $address[2],
+            ]);
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        DB::table('ph_addresses')->whereIn('ph_address_province', [
+            'Batanes',
+            'Cagayan',
+            'Isabela',
+            'Nueva Vizcaya',
+            'Quirino'
+        ])->delete();
+    }
+};

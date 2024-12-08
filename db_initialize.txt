@@ -1,0 +1,51 @@
+CREATE TABLE specialties (
+    specialty_id INT PRIMARY KEY AUTO_INCREMENT,
+    specialty_name VARCHAR(250) UNIQUE,
+    specialty_description VARCHAR(500)
+);
+
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY AUTO_INCREMENT,
+    department_name VARCHAR(250) UNIQUE
+);
+
+CREATE TABLE roles (
+    role_id INT PRIMARY KEY AUTO_INCREMENT,
+    role_name VARCHAR(250) UNIQUE,
+    role_description VARCHAR(250)
+);
+
+CREATE TABLE addresses (
+    address_id INT PRIMARY KEY AUTO_INCREMENT,
+    address_number INT,
+    address_street VARCHAR(250),
+    adddress_city VARCHAR(250),
+    address_region VARCHAR(250),
+    address_zipcode VARCHAR(4)
+);
+
+CREATE TABLE accesses (
+    access_id INT PRIMARY KEY AUTO_INCREMENT,
+    can_Enroll_patient BOOLEAN,
+    can_Edit_patient_info BOOLEAN,
+    can_Delete_user BOOLEAN,
+    can_Delete_patient_info BOOLEAN
+);
+
+CREATE TABLE threads (
+    thread_id INT PRIMARY KEY AUTO_INCREMENT,
+    thread_subject VARCHAR(250),
+    thread_createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    thread_lastUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE basis (
+    basis_id INT PRIMARY KEY AUTO_INCREMENT,
+    category VARCHAR(250),
+    subcategory VARCHAR(250)
+);
+
+CREATE TABLE bodySite (
+    bodySite_id INT PRIMARY KEY AUTO_INCREMENT,
+    bodySite_name VARCHAR(250)
+);

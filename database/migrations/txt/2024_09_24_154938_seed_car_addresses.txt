@@ -1,0 +1,129 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        $addresses = [
+
+            //Abra
+            ['Bangued', 'Abra', 'CAR'],
+            ['Bucloc', 'Abra', 'CAR'],
+            ['Boliney', 'Abra', 'CAR'],
+            ['Bucay', 'Abra', 'CAR'],
+            ['Daguioman', 'Abra', 'CAR'],
+            ['Danglas', 'Abra', 'CAR'],
+            ['Dolores', 'Abra', 'CAR'],
+            ['La Paz', 'Abra', 'CAR'],
+            ['Lacub', 'Abra', 'CAR'],
+            ['Lagangilang', 'Abra', 'CAR'],
+            ['Lagayan', 'Abra', 'CAR'],
+            ['Langiden', 'Abra', 'CAR'],
+            ['Licuan-Baay', 'Abra', 'CAR'],
+            ['Luba', 'Abra', 'CAR'],
+            ['Malibcong', 'Abra', 'CAR'],
+            ['Manabo', 'Abra', 'CAR'],
+            ['Peñarrubia', 'Abra', 'CAR'],
+            ['SallaPadan', 'Abra', 'CAR'],
+            ['San Isidro', 'Abra', 'CAR'],
+            ['San Juan', 'Abra', 'CAR'],
+            ['San Quintin', 'Abra', 'CAR'],
+            ['Tayum', 'Abra', 'CAR'],
+            ['Tineg', 'Abra', 'CAR'],
+            ['Tubo', 'Abra', 'CAR'],
+            ['Tayum', 'Abra', 'CAR'],
+            ['Villaviciosa', 'Abra', 'CAR'],
+
+            //Benguet
+            ['Atok', 'Benguet', 'CAR'],
+            ['Bakun', 'Benguet', 'CAR'],
+            ['Bokod', 'Benguet', 'CAR'],
+            ['Buguias', 'Benguet', 'CAR'],
+            ['Itogon', 'Benguet', 'CAR'],
+            ['Kabayan', 'Benguet', 'CAR'],
+            ['Kibungan', 'Benguet', 'CAR'],
+            ['Itogon', 'Benguet', 'CAR'],
+            ['La Trinidad', 'Benguet', 'CAR'],
+            ['Mankayan', 'Benguet', 'CAR'],
+            ['Tuba', 'Benguet', 'CAR'],
+            ['Benguet', 'Benguet', 'CAR'],
+            ['Buguias', 'Benguet', 'CAR'],
+            ['Sablan', 'Benguet', 'CAR'],
+            ['Tublay', 'Benguet', 'CAR'],
+            
+            //Apayao
+            ['Calanasan', 'Apayao', 'CAR'],
+            ['Conner', 'Apayao', 'CAR'],
+            ['Flora     ', 'Apayao', 'CAR'],
+            ['Kabugao', 'Apayao', 'CAR'],
+            ['Luna', 'Apayao', 'CAR'],
+            ['Pudtol', 'Apayao', 'CAR'],
+            ['Santa Marcela', 'Apayao', 'CAR'],
+
+
+            //Mountain Province
+            ['Barlig', 'Mountain Province', 'CAR'],
+            ['Bauko', 'Mountain Province', 'CAR'],
+            ['Besao', 'Mountain Province', 'CAR'],
+            ['Bontoc', 'Mountain Province', 'CAR'],
+            ['Natonin', 'Mountain Province', 'CAR'],
+            ['Paracells', 'Mountain Province', 'CAR'],
+            ['Sabangan', 'Mountain Province', 'CAR'],
+            ['Sagada', 'Mountain Province', 'CAR'],
+            ['Tadian', 'Mountain Province', 'CAR'],
+
+            //Ifugao
+            ['Banaue', 'Ifugao', 'CAR'],
+            ['Hungduan', 'Ifugao', 'CAR'],
+            ['Kiangan', 'Ifugao', 'CAR'],
+            ['Lagawe', 'Ifugao', 'CAR'],
+            ['Lamut', 'Ifugao', 'CAR'],
+            ['Mayoyao', 'Ifugao', 'CAR'],
+            ['Alfonso Lista', 'Ifugao', 'CAR'],
+            ['Aguinaldo', 'Ifugao', 'CAR'],
+            ['Hingyon', 'Ifugao', 'CAR'],
+            ['Tinoc', 'Ifugao', 'CAR'],
+            ['Asipulo', 'Ifugao', 'CAR'],
+            
+            //Kalinga
+            ['Tabuk City', 'Kalinga', 'CAR'],
+            ['Balbalan', 'Kalinga', 'CAR'],
+            ['Pasil', 'Kalinga', 'CAR'],
+            ['Rizal', 'Kalinga', 'CAR'],
+            ['Pinukpuk', 'Kalinga', 'CAR'],
+            ['Tanudan', 'Kalinga', 'CAR'],
+            ['Lubuagan', 'Kalinga', 'CAR'],
+            ['Tinglayan', 'Kalinga', 'CAR'],  
+        ];        
+        foreach ($addresses as $address) {
+            DB::table('ph_addresses')->insert([
+                'ph_address_muni-city' => $address[0],
+                'ph_address_province' => $address[1],
+                'ph_address_region' => $address[2],
+            ]);
+        }
+        
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        DB::table('ph_addresses')->whereIn('ph_address_province', [
+            'Abra',
+            'Benguet',
+            'Ifugao',
+            'Kalinga',
+            'Mountain Province',
+            'Apayao'
+        ])->delete();
+    }
+};

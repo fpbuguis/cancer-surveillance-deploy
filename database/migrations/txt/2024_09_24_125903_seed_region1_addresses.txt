@@ -1,0 +1,188 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        $addresses = [
+
+            // Ilocos Norte
+            //Cities
+            ['Laoag City', 'Ilocos Norte', 'Region 1'],
+            ['Batac City', 'Ilocos Norte', 'Region 1'],
+
+            //Municipalities
+            ['Adams', 'Ilocos Norte', 'Region 1'],
+            ['Bacarra', 'Ilocos Norte', 'Region 1'],
+            ['Badoc', 'Ilocos Norte', 'Region 1'],
+            ['Bangui', 'Ilocos Norte', 'Region 1'],
+            ['Burgos', 'Ilocos Norte', 'Region 1'],
+            ['Carasi', 'Ilocos Norte', 'Region 1'],
+            ['Currimao', 'Ilocos Norte', 'Region 1'],
+            ['Dingras', 'Ilocos Norte', 'Region 1'],
+            ['Dumalneg', 'Ilocos Norte', 'Region 1'],
+            ['Banna (Espiritu)', 'Ilocos Norte', 'Region 1'],
+            ['Marcos', 'Ilocos Norte', 'Region 1'],
+            ['Nueva Era', 'Ilocos Norte', 'Region 1'],
+            ['Pagudpud', 'Ilocos Norte', 'Region 1'],
+            ['Paoay', 'Ilocos Norte', 'Region 1'],
+            ['Pasuquin', 'Ilocos Norte', 'Region 1'],
+            ['Piddig', 'Ilocos Norte', 'Region 1'],
+            ['Pinili', 'Ilocos Norte', 'Region 1'],
+            ['San Nicolas', 'Ilocos Norte', 'Region 1'],
+            ['Sarrat', 'Ilocos Norte', 'Region 1'],
+            ['Solsona', 'Ilocos Norte', 'Region 1'],
+            ['Vintar', 'Ilocos Norte', 'Region 1'],
+
+            // Ilocos Sur
+            //Cities
+            ['Vigan City', 'Ilocos Sur', 'Region 1'],
+            ['Candon City', 'Ilocos Sur', 'Region 1'],
+
+            //Municipalities
+            ['Alilem', 'Ilocos Sur', 'Region 1'],
+            ['Banayoyo', 'Ilocos Sur', 'Region 1'],
+            ['Bantay', 'Ilocos Sur', 'Region 1'],
+            ['Burgos', 'Ilocos Sur', 'Region 1'],
+            ['Cabugao', 'Ilocos Sur', 'Region 1'],
+            ['Caoayan', 'Ilocos Sur', 'Region 1'],
+            ['Cervantes', 'Ilocos Sur', 'Region 1'],
+            ['Galimuyod', 'Ilocos Sur', 'Region 1'],
+            ['Gregorio del Pilar', 'Ilocos Sur', 'Region 1'],
+            ['Lidlidda', 'Ilocos Sur', 'Region 1'],
+            ['Magsingal', 'Ilocos Sur', 'Region 1'],
+            ['Nagbukel', 'Ilocos Sur', 'Region 1'],
+            ['Narvacan', 'Ilocos Sur', 'Region 1'],
+            ['Quirino', 'Ilocos Sur', 'Region 1'],
+            ['Salcedo', 'Ilocos Sur', 'Region 1'],
+            ['San Emilio', 'Ilocos Sur', 'Region 1'],
+            ['San Esteban', 'Ilocos Sur', 'Region 1'],
+            ['San Ildefonso', 'Ilocos Sur', 'Region 1'],
+            ['San Juan', 'Ilocos Sur', 'Region 1'],
+            ['San Vicente', 'Ilocos Sur', 'Region 1'],
+            ['Santa', 'Ilocos Sur', 'Region 1'],
+            ['Santa Catalina', 'Ilocos Sur', 'Region 1'],
+            ['Santa Cruz', 'Ilocos Sur', 'Region 1'],
+            ['Santa Lucia', 'Ilocos Sur', 'Region 1'],
+            ['Santa Maria', 'Ilocos Sur', 'Region 1'],
+            ['Santiago', 'Ilocos Sur', 'Region 1'],
+            ['Santo Domingo', 'Ilocos Sur', 'Region 1'],
+            ['Sigay', 'Ilocos Sur', 'Region 1'],
+            ['Sinait', 'Ilocos Sur', 'Region 1'],
+            ['Sugpon', 'Ilocos Sur', 'Region 1'],
+            ['Suyo', 'Ilocos Sur', 'Region 1'],
+            ['Tagudin', 'Ilocos Sur', 'Region 1'],
+
+            // La Union
+            //Cities
+            ['San Fernando City', 'La Union', 'Region 1'],
+
+            //Municipalities
+            ['Agoo', 'La Union', 'Region 1'],
+            ['Aringay', 'La Union', 'Region 1'],
+            ['Bacnotan', 'La Union', 'Region 1'],
+            ['Bagulin', 'La Union', 'Region 1'],
+            ['Balaoan', 'La Union', 'Region 1'],
+            ['Bangar', 'La Union', 'Region 1'],
+            ['Bauang', 'La Union', 'Region 1'],
+            ['Burgos', 'La Union', 'Region 1'],
+            ['Caba', 'La Union', 'Region 1'],
+            ['Luna', 'La Union', 'Region 1'],
+            ['Naguilian', 'La Union', 'Region 1'],
+            ['Pugo', 'La Union', 'Region 1'],
+            ['Rosario', 'La Union', 'Region 1'],
+            ['San Gabriel', 'La Union', 'Region 1'],
+            ['San Juan', 'La Union', 'Region 1'],
+            ['Santo Tomas', 'La Union', 'Region 1'],
+            ['Santol', 'La Union', 'Region 1'],
+            ['Sudipen', 'La Union', 'Region 1'],
+            ['Tubao', 'La Union', 'Region 1'],
+            
+            // Pangasinan
+            //Cities
+            ['Alaminos City', 'Pangasinan', 'Region 1'],
+            ['Dagupan City', 'Pangasinan', 'Region 1'],
+            ['San Carlos City', 'Pangasinan', 'Region 1'],
+            ['Urdaneta City', 'Pangasinan', 'Region 1'],
+
+            //Municipalities
+            ['Agno', 'Pangasinan', 'Region 1'],
+            ['Aguilar', 'Pangasinan', 'Region 1'],
+            ['Alcala', 'Pangasinan', 'Region 1'],
+            ['Anda', 'Pangasinan', 'Region 1'],
+            ['Asingan', 'Pangasinan', 'Region 1'],
+            ['Balungao', 'Pangasinan', 'Region 1'],
+            ['Bani', 'Pangasinan', 'Region 1'],
+            ['Basista', 'Pangasinan', 'Region 1'],
+            ['Bautista', 'Pangasinan', 'Region 1'],
+            ['Bayambang', 'Pangasinan', 'Region 1'],
+            ['Binalonan', 'Pangasinan', 'Region 1'],
+            ['Binmaley', 'Pangasinan', 'Region 1'],
+            ['Bolinao', 'Pangasinan', 'Region 1'],
+            ['Bugallon', 'Pangasinan', 'Region 1'],
+            ['Burgos', 'Pangasinan', 'Region 1'],
+            ['Calasiao', 'Pangasinan', 'Region 1'],
+            ['Dasol', 'Pangasinan', 'Region 1'],
+            ['Infanta', 'Pangasinan', 'Region 1'],
+            ['Labrador', 'Pangasinan', 'Region 1'],
+            ['Lingayen', 'Pangasinan', 'Region 1'],
+            ['Mabini', 'Pangasinan', 'Region 1'],
+            ['Malasiqui', 'Pangasinan', 'Region 1'],
+            ['Manaoag', 'Pangasinan', 'Region 1'],
+            ['Mangaldan', 'Pangasinan', 'Region 1'],
+            ['Mangatarem', 'Pangasinan', 'Region 1'],
+            ['Mapandan', 'Pangasinan', 'Region 1'],
+            ['Natividad', 'Pangasinan', 'Region 1'],
+            ['Pozzorubio', 'Pangasinan', 'Region 1'],
+            ['Rosales', 'Pangasinan', 'Region 1'],
+            ['San Fabian', 'Pangasinan', 'Region 1'],
+            ['San Jacinto', 'Pangasinan', 'Region 1'],
+            ['San Miguel', 'Pangasinan', 'Region 1'],
+            ['San Nicolas', 'Pangasinan', 'Region 1'],
+            ['San Quintin', 'Pangasinan', 'Region 1'],
+            ['Santa Barbara', 'Pangasinan', 'Region 1'],
+            ['Santa Maria', 'Pangasinan', 'Region 1'],
+            ['Santo Tomas', 'Pangasinan', 'Region 1'],
+            ['Sison', 'Pangasinan', 'Region 1'],
+            ['Sual', 'Pangasinan', 'Region 1'],
+            ['Tayug', 'Pangasinan', 'Region 1'],
+            ['Umingan', 'Pangasinan', 'Region 1'],
+            ['Urbiztondo', 'Pangasinan', 'Region 1'],
+            ['Villasis', 'Pangasinan', 'Region 1'],
+            ['Laoac', 'Pangasinan', 'Region 1'],
+
+        ];
+
+        foreach ($addresses as $address) {
+            DB::table('ph_addresses')->insert([
+                'ph_address_muni-city' => $address[0],
+                'ph_address_province' => $address[1],
+                'ph_address_region' => $address[2],
+            ]);
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        DB::table('ph_addresses')->whereIn('ph_address_province', [
+            'Ilocos Norte',
+            'Ilocos Sur',
+            'La Union',
+            'Pangasinan'
+        ])->delete();
+    }
+};
+

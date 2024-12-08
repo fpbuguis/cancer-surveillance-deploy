@@ -1,0 +1,223 @@
+.page-heading { /* for page heading div */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-heading { /* for page heading text */
+  font-weight: 900;
+  font-size: 35px;
+  color: #a02123;
+}
+
+.wider-page-container { /* for wider page div */
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.form-container { /* for center solo form div */
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label { /* for form labels and input */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+}
+
+textarea {
+  height: 50px;
+  resize: none;
+}
+
+.form-checkbox, .form-radio {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  accent-color: #a02123;
+  color: #a02123;
+  border: 1px solid #ccc;
+}
+
+input[type="checkbox"]:focus,  textarea:focus, input[type="text"]:focus, input:focus, select:focus {
+  outline: 2px solid #8a0e0e;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.red-asterisk {
+  color: #ff0004;
+}
+
+button { /* for inside pages button */
+    background-color: #a02123;
+    color: white;
+}
+
+button:hover {
+    background-color: #8a0e0e;
+}
+
+/* consult page */
+.two-section-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.info-left, .info-right {
+  width: 48%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.side-form-section {
+  width: 75%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.buttons-section {
+  width: 20%;
+  padding: 20px 0;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.bigger-btn {
+  padding: 15px;
+  font-weight: bolder;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* consult page */
+
+/* lab req page */
+
+h2 {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.lab-list ul {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+/* lab req page */
+
+/* lab results page */
+
+input[type="file"] {
+  display: block;
+  margin-top: 10px;
+}
+
+.form-group2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-group2 input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.form-group2 input[type="text"] {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+/* radio btn */
+
+input[type="radio"] {
+    display: none;
+}
+
+.custom-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #a02123;
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    transition: background-color 0.3s;
+}
+
+
+input[type="radio"]:checked + .custom-radio {
+    background-color: #a02123;
+}
+
+input[type="radio"]:checked + .custom-radio::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* for two col in radio buttons */
+.grid {
+  display: grid;
+  margin-left: 10px;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.md\:grid-cols-2 {
+  @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+/* lab results page */

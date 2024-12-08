@@ -1,0 +1,23 @@
+<?php
+namespace App\Http\Controllers;
+
+use App\Models\Histology;
+use App\Models\Pathology;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
+
+class HistologyController extends Controller
+{
+    public function getHistologyTerms()
+    {
+        // Retrieve all unique histo_pathology terms from Pathologies
+        $terms = Histology::with('pathology')  // Eager load Pathologies relationship
+            ->get()
+            ->pluck('pathology.term')
+            ->unique()
+            ->values();
+
+        return response()->json($terms);
+    }
+}

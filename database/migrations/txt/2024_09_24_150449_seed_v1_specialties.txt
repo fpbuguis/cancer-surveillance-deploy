@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        $specialties = [
+          ['Surgical Oncology', 'Surgeon specialized in cancer operation'],
+          ['Medical Oncology', 'Internist specialized in cancer medication'],
+          ['Radiation Oncology', 'Doctor specialized in administering radiation medicine'],
+          ['Pathology', 'Doctor specialized in identifying pathology from tissue samples'],
+          ['Colorectal Surgery', 'Surgeon specialized in colon and rectal cancer'],
+        ];
+
+        foreach ($specialties as $specialty) {
+            DB::table('specialties')->insert([
+                'specialty_name' => $specialty[0],
+                'specialty_description' => $specialty[1],
+            ]);
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        DB::table('specialties')->whereIn('specialty_name', [
+            'Surgical Oncology',
+            'Medical Oncology',
+            'Radiation Oncology',
+            'Pathology',
+            'Colorectal Surgery'
+        ])->delete();
+    }
+};

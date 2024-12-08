@@ -1,0 +1,52 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('other_primaries', function (Blueprint $table) {
+            $table->id('op_id');
+            $table->foreignId('patient_id')->references('patient_id')->on('patients')->onDelete('cascade');
+            $table->boolean('op_Colon');
+            $table->boolean('op_Brain');
+            $table->boolean('op_UrinaryBladder');
+            $table->boolean('op_GallBladder');
+            $table->boolean('op_Thyroid');
+            $table->boolean('op_UterineCervix');
+            $table->boolean('op_Liver');
+            $table->boolean('op_CorpusUteri');
+            $table->boolean('op_Breast');
+            $table->boolean('op_Ovary');
+            $table->boolean('op_Blood');
+            $table->boolean('op_Lung');
+            $table->boolean('op_Esophagus');
+            $table->boolean('op_Kidney');
+            $table->boolean('op_OralCavity');
+            $table->boolean('op_Stomach');
+            $table->boolean('op_Pancreas');
+            $table->boolean('op_Skin');
+            $table->boolean('op_Nasopharynx');
+            $table->boolean('op_Testis');
+            $table->boolean('op_Prostate');
+            $table->boolean('op_Rectum');
+            // $table->string('op_Others')->nullable();
+            $table->foreignId('op_encoder')->nullable()->references('user_id')->on('users');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('other_primaries');
+    }
+};
