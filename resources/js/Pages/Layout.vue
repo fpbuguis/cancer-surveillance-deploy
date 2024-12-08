@@ -1,8 +1,8 @@
 <script setup>
 
-import VerticalNavbar from '@/components/VerticalNavbar.vue';
 import { router } from '@inertiajs/vue3';
 import DropdownLink from '@/Components/DropdownLink.vue';
+import VerticalNavbar from '@/Components/VerticalNavbar.vue';
 
 
 // export default {
